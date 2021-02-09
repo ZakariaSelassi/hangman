@@ -2,10 +2,10 @@
 
 
     const guessWord = [
-        "Pomme",
-        "Poire",
-        "Fraise",
-        "Javascript",
+        "pomme",
+        "poire",
+        "fraise",
+        "javascript",
         "coder",
         "asynchronous"
     ];
@@ -24,18 +24,25 @@
         document.getElementById("letterWord").appendChild(span).style.letterSpacing = "10px";
     }
     // Etape 3 : Verifiez si la lettre est dans le tableau
+    // checks if letter matches one or more of letters in the word javascript
+    document.getElementById("lettre").addEventListener("input", function() {
+        let lettre = document.getElementById("lettre");
+        //let l = lettre.value;
+        // console.log(l);
+        console.log(typeof randomWords);
 
-    let lettre;
-
-    if (randomWords.indexOf(lettre)) {
-        return true;
-    } else {
-        console.log("Erreur");
-    }
-    document.getElementById("letter").addEventListener("input", function() {
-        let input = document.getElementById("letter").value;
-        console.log(input.value);
+        // console.log(randomWords.indexOf(lettre.value));
+        // doit return true si l'element recherche est dans la chaine.
+        if (randomWords.indexOf(lettre.value) > -1 && lettre.value != "") {
+            return console.log("ok");
+        } else {
+            return console.log("wrong letter ");
+        }
     });
+
+
+
+
 
 
 
