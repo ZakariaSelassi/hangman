@@ -10,11 +10,15 @@
         "asynchronous"
     ];
 
-    let secretWord = [];
+    let life = 5;
+    let stock = document.createElement("p");
+    stock.setAttribute("class", "myP");
+    stock.innerHTML = life;
+    document.getElementById("title").after(stock);
     // Etape 1 : récupérer un mot aléatoire dans un tableau.
     randomWords = guessWord[Math.floor(Math.random() * guessWord.length)];
     alert(randomWords);
-    let arrayWord = randomWords.split("")
+    let arrayWord = randomWords.split("");
     let span;
     // Etape 2 : remplacer lettre par underscore 
     for (let i = 0; i < randomWords.length; i++) {
@@ -35,8 +39,12 @@
         // doit return true si l'element recherche est dans la chaine.
         if (randomWords.indexOf(lettre.value) > -1 && lettre.value != "") {
             return console.log("ok");
-        } else {
-            return console.log("wrong letter ");
+        } else if (life > 0) {
+            life = life - 1;
+            stock.innerHTML = life;
+            return console.log("life point :", life);
+        } else if (life === 0) {
+            return alert("PArtie perdu !");
         }
     });
 
@@ -51,14 +59,14 @@
                 s[i].innerHTML = p;
                 console.log(s[i]);
             }
-            /*else {
-                           s[i].innerHTML = '_';
 
-                       }*/
-
-            document.getElementById("letterWord").appendChild(span);
         }
+
     });
+
+    // Etape 5 : Verify
+
+
 
 
 
