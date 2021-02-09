@@ -9,7 +9,7 @@
         "coder",
         "asynchronous"
     ];
-
+    let secretWord = [];
     let life = 5;
     let stock = document.createElement("p");
     stock.setAttribute("class", "myP");
@@ -22,10 +22,10 @@
     let span;
     // Etape 2 : remplacer lettre par underscore 
     for (let i = 0; i < randomWords.length; i++) {
-        //secretWord.push('_');
+        secretWord.push('_');
         span = document.createElement("span");
         span.setAttribute("class", "myspan");
-        span.innerText = "_";
+        span.innerText = secretWord[i];
         document.getElementById("letterWord").appendChild(span).style.letterSpacing = "10px";
     }
     // Etape 3 : Verifiez si la lettre est dans le tableau
@@ -44,8 +44,11 @@
             stock.innerHTML = "life remaining : " + life;
             return console.log("life point :", life);
         } else if (life == 0) {
+            alert("You lose ! Try it again");
             return location.reload();
         }
+
+
 
     });
 
@@ -54,22 +57,24 @@
         let p = lettre.value;
         console.log(lettre.value);
         let s = document.querySelectorAll(".myspan");
-        console.log(arrayWord.length);
+        console.log(secretWord);
+        console.log(arrayWord);
         for (let i = 0; i < randomWords.length; i++) {
             if (p === arrayWord[i]) {
                 s[i].innerHTML = p;
                 console.log(s[i]);
             }
+            // Compare 2 tableau si ils sont egals afficher win 
+            if (secretWord.equals([arrayWord])) {
+                alert("win");
+            }
+
         }
 
-        let b;
-        b = arrayWord.join('');
-        console.log(b);
-        if (s.values == b.values) {
-            return alert("Win");
-        }
 
     });
+
+
 
 
 
