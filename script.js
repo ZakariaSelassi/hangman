@@ -13,7 +13,7 @@
     let life = 5;
     let stock = document.createElement("p");
     stock.setAttribute("class", "myP");
-    stock.innerHTML = life;
+    stock.innerHTML = "life remaining : " + life;
     document.getElementById("title").after(stock);
     // Etape 1 : récupérer un mot aléatoire dans un tableau.
     randomWords = guessWord[Math.floor(Math.random() * guessWord.length)];
@@ -41,11 +41,12 @@
             return console.log("ok");
         } else if (life > 0) {
             life = life - 1;
-            stock.innerHTML = life;
+            stock.innerHTML = "life remaining : " + life;
             return console.log("life point :", life);
-        } else if (life === 0) {
-            return alert("PArtie perdu !");
+        } else if (life == 0) {
+            return location.reload();
         }
+
     });
 
     // Etape 4 : display letter match to word
@@ -53,18 +54,25 @@
         let p = lettre.value;
         console.log(lettre.value);
         let s = document.querySelectorAll(".myspan");
-        console.log(s);
+        console.log(arrayWord.length);
         for (let i = 0; i < randomWords.length; i++) {
             if (p === arrayWord[i]) {
                 s[i].innerHTML = p;
                 console.log(s[i]);
             }
+        }
 
+        let b;
+        b = arrayWord.join('');
+        console.log(b);
+        if (s.values == b.values) {
+            return alert("Win");
         }
 
     });
 
-    // Etape 5 : Verify
+
+
 
 
 
