@@ -20,9 +20,8 @@
     ];
 
     let cpt = 0;
-
-
-
+    let cpt2 = 0;
+    let compteurimage;
     // creation compteur 
     let life = 5;
     let stock = document.createElement("p");
@@ -47,7 +46,14 @@
         for (let i = 0; i < randomWords.length; i++) {
             if (randomWords.indexOf(lettre.value) > -1 && lettre.value != "") {
                 return console.log("ok");
-            } else if (life > 0) {
+            } else {
+                let img = document.querySelector("img");
+                img.src = gallery[cpt2];
+                cpt2++;
+
+            }
+
+            if (life > 0) {
                 life = life - 1;
                 stock.innerHTML = "life remaining : " + life;
                 return console.log("life point :", life);
@@ -82,14 +88,5 @@
     });
 
 
-    document.getElementById("btn").addEventListener("click", function() {
-        let img = document.querySelector("img");
-        let src = img.src;
-        img.src = gallery[cpt];
-        cpt++;
-
-
-
-    });
 
 })();
