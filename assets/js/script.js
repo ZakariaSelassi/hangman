@@ -9,9 +9,10 @@
         "coder",
         "asynchronous"
     ];
+    let x = document.getElementById("lose").style.display = "none";
+    let y = document.getElementById("win").style.display = "none";
 
     let cpt = 0;
-    let secretWord = [];
     let life = 5;
     let stock = document.createElement("p");
     stock.setAttribute("class", "myP");
@@ -19,7 +20,7 @@
     document.getElementById("title").after(stock);
     // Etape 1 : récupérer un mot aléatoire dans un tableau.
     randomWords = guessWord[Math.floor(Math.random() * guessWord.length)];
-    alert(randomWords);
+
     let arrayWord = randomWords.split("");
     let span;
     // Etape 2 : remplacer lettre par underscore 
@@ -40,7 +41,7 @@
                 stock.innerHTML = "life remaining : " + life;
                 return console.log("life point :", life);
             } else if (life == 0) {
-                alert("You lose ! Try it again");
+                alert("Game over ! the word was : " + randomWords);
                 return location.reload();
             }
         }
@@ -59,7 +60,8 @@
                 console.log(s);
                 console.log(cpt, arrayWord.length);
                 if (cpt == arrayWord.length) {
-                    alert("win");
+                    alert("win the word was : " + randomWords);
+                    return location.reload();
                 }
             }
         }
@@ -70,10 +72,9 @@
 
     });
 
-    function win(cpt) {
-        if (cpt === arrayWord.length) {
 
-        }
+    function myFunction() {
+
     }
 
 
