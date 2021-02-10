@@ -9,10 +9,21 @@
         "coder",
         "asynchronous"
     ];
-    let x = document.getElementById("lose").style.display = "none";
-    let y = document.getElementById("win").style.display = "none";
+
+    let gallery = [
+        "img/0.jpg",
+        "img/5.jpg",
+        "img/6.jpg",
+        "img/8.jpg",
+        "img/10.jpg",
+
+    ];
 
     let cpt = 0;
+
+
+
+    // creation compteur 
     let life = 5;
     let stock = document.createElement("p");
     stock.setAttribute("class", "myP");
@@ -20,10 +31,10 @@
     document.getElementById("title").after(stock);
     // Etape 1 : récupérer un mot aléatoire dans un tableau.
     randomWords = guessWord[Math.floor(Math.random() * guessWord.length)];
-
     let arrayWord = randomWords.split("");
-    let span;
+
     // Etape 2 : remplacer lettre par underscore 
+    let span;
     for (let i = 0; i < randomWords.length; i++) {
         span = document.createElement("span");
         span.setAttribute("class", "myspan");
@@ -66,16 +77,23 @@
             }
         }
 
-
-
-
+        // Image 
 
     });
 
 
-    function myFunction() {
+    document.getElementById("btn").addEventListener("click", function() {
+        let img = document.querySelector("img");
+        let src = img.src;
+        if (cpt >= gallery.length - 1) {
+            cpt = 0;
+        }
 
-    }
+        img.src = gallery[cpt];
+        cpt = cpt + 1;
+        console.log(gallery[cpt]);
 
+
+    });
 
 })();
