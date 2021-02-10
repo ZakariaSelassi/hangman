@@ -85,13 +85,16 @@
     document.getElementById("btn").addEventListener("click", function() {
         let img = document.querySelector("img");
         let src = img.src;
-        if (cpt >= gallery.length - 1) {
-            cpt = 0;
+        let cpt = 0;
+        if (!arrayWord.includes(lettre)) {
+            img.src = gallery[cpt];
+            cpt++;
+            console.log(gallery[cpt]);
         }
 
-        img.src = gallery[cpt];
-        cpt = cpt + 1;
-        console.log(gallery[cpt]);
+
+
+
 
 
     });
