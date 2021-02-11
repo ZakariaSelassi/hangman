@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #21542f;
+    background: #2E4053;
     color: white;
 }
 
@@ -22,6 +22,21 @@ body {
     align-items: center;
 }
 
+.blocContainer {
+    background: #566573;
+    padding: 5rem;
+    margin: 1rem;
+    box-shadow: 2px 2px 2px black;
+}
+
 .inputcontainer {
     color: black;
+    margin-top: 1rem;
+    #btn {
+        padding: 0.5rem;
+        border-radius: 5%;
+        &:hover {
+            background: grey;
+        }
+    }
 }
