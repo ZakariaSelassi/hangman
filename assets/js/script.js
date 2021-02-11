@@ -21,9 +21,8 @@
 
     let cpt = 0;
     let cpt2 = 0;
-    let compteurimage;
     // creation compteur 
-    let life = 5;
+    let life = 6;
     let stock = document.createElement("p");
     stock.setAttribute("class", "myP");
     stock.innerHTML = "life remaining : " + life;
@@ -40,33 +39,9 @@
         span.innerText = "_";
         document.getElementById("letterWord").appendChild(span).style.letterSpacing = "10px";
     }
-    // Etape 3 : Verifiez si la lettre est dans le tableau
-    document.getElementById("lettre").addEventListener("input", function() {
-        let lettre = document.getElementById("lettre");
-        for (let i = 0; i < randomWords.length; i++) {
-            if (randomWords.indexOf(lettre.value) > -1 && lettre.value != "") {
-                return console.log("ok");
-            } else {
-                let img = document.querySelector("img");
-                img.src = gallery[cpt2];
-                cpt2++;
+    document.getElementById("btn").addEventListener("click", () => myfunction());
 
-            }
-
-            if (life > 0) {
-                life = life - 1;
-                stock.innerHTML = "life remaining : " + life;
-                return console.log("life point :", life);
-            } else if (life == 0) {
-                alert("Game over ! the word was : " + randomWords);
-                return location.reload();
-            }
-        }
-
-    });
-
-    // Etape 4 : display letter match to word
-    document.getElementById("btn").addEventListener("click", function() {
+    function myfunction() {
         let p = lettre.value;
 
         let s = document.querySelectorAll(".myspan");
@@ -74,7 +49,7 @@
             if (p === arrayWord[i]) {
                 s[i].innerHTML = p;
                 cpt++;
-                console.log(s);
+
                 console.log(cpt, arrayWord.length);
                 if (cpt == arrayWord.length) {
                     alert("win the word was : " + randomWords);
@@ -82,11 +57,20 @@
                 }
             }
         }
-
-        // Image 
-
-    });
-
+        if (randomWords.indexOf(lettre.value) > -1 && lettre.value != "") {
+            return console.log("ok");
+        } else {
+            let img = document.querySelector("img");
+            img.src = gallery[cpt2];
+            cpt2++;
+            life = life - 1;
+            stock.innerHTML = "life remaining : " + life;
+        }
+        if (life === 0) {
+            alert("Game over ! the word was : " + randomWords);
+            return location.reload();
+        }
+    }
 
 
 })();
