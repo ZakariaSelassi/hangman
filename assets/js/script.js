@@ -43,7 +43,6 @@
 
     function myfunction() {
         let p = lettre.value;
-
         let s = document.querySelectorAll(".myspan");
         for (let i = 0; i < randomWords.length; i++) {
             if (p === arrayWord[i]) {
@@ -58,8 +57,10 @@
             }
         }
         if (randomWords.indexOf(lettre.value) > -1 && lettre.value != "") {
+            document.getElementById("lettre").value = '';
             return console.log("ok");
         } else {
+            document.getElementById("lettre").value = '';
             let img = document.querySelector("img");
             img.src = gallery[cpt2];
             cpt2++;
