@@ -39,4 +39,4 @@ things, what matters is the end result.
 
 ## Page
 
-* [Hangman](https://zakariaselassi.github.io/hangman/)
+* [Hangman](https://zakariaselassi.github.io/hangman/assets)
